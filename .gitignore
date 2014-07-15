@@ -1,2 +1,3 @@
 #vim production's file
 *.swp
+*.lock

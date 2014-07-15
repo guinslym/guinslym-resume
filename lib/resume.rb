@@ -6,6 +6,7 @@ class Resume
   attr_accessor :name, :tel, :email, :experience, :education
   
   def initialize(data)
+  	self.formatter = 'progress'
     bio = data['bio']
     @name = bio['firstName'] + ' ' + bio['lastName']
     @tel = bio['phone']
