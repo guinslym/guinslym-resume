@@ -1,15 +1,6 @@
 require "spec_helper"
 require_relative "../lib/resume"
 
-require "json"
-class Resume
-  attr_accessor :name, :tel, :email, :experience, :education, :company
-  
-  def initialize
-  #  file = File.read("resume.json")
-  end
-
-end
 
 describe Resume do 
 
@@ -29,8 +20,8 @@ describe Resume do
     expect(@resume).to respond_to(:education)
     expect(@resume).to respond_to(:company)
   end
-  it ".load_file" do
-
+  it "name should be my name" do
+    expect(@resume.name).to eq("hello")
   end
 
 end
