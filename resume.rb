@@ -1,37 +1,36 @@
-=begin
-require "./lib/resume"
-
-
-#resume.json was build with npm-resume
-file = File.read("resume.json")
-data = JSON.parse(file)
-resume = Resume.new(data)
-puts data["work"]
-
-
-bio
-work
-education
-awards
-publications
-skills
-references
-=end
-
+require "json"
 require 'command_line_reporter'
 require 'ostruct'
 require 'optparse'
 
-#this is the example file from command_line_reporter that I will modify the Example.class to fits my needs
 
 class Resume
   include CommandLineReporter
 
+  	attr_accessor :hello
   def initialize
     self.formatter = 'progress'
     formatter.color = 'blue'
     formatter.bold = true
   end
+
+  	#data = JSON.parse(File.read("resume.json"))
+
+  	#puts data = data['bio']['firstName']
+
+  def entete(titre, vertical_line=0, timestamp = false, couleur='white', align="center")
+  	#outputs a vertical line
+  	if vertical_line >0 
+	 vertical_spacing vertical_line
+  	end
+
+	header :title => titre,
+       :rule => true,
+       :color => couleur,
+       :align => align,
+       :bold => true,
+       :timestamp => timestamp
+	 end
 
 
 
@@ -50,56 +49,86 @@ class Resume
     restore_output if options.quiet
 
 
+    #header for Guinsly Mondésir --Resume
+	 horizontal_rule :color => 'blue', :bold => true
+	 entete("Guinsly Mondesir - My Resume",0, true)
 
-    header :title => 'An example of a table with a header row.  The color and border properties are not inherited'
 
+#############################################################################
+#############################################################################
+	 #header for Education
+	 entete("Education", 2)
+	#table for Education
     table :border => true do
       row :header => true, :color => 'red'  do
-        column 'MY NAME IS REALLY LONG AND WILL WRAP AND HOPE', :width => 20, :align => 'center', :color => 'blue'
-        column 'ADDRESS', :width => 30, :padding => 5
-        column 'CITY', :width => 15
+        column 'School', :width => 40, :align => 'center', :color => 'blue'
+        column 'Diploma', :width => 40, :padding => 5
+        column 'Year', :width => 15
       end
+      #I need to do a loop of my shool and diplomas here 
       row :color => 'green', :bold => true do
-        column 'Ceaser'
-        column '1 Appian Way'
-        column 'Rome'
+        column 'Universite de Montreal'
+        column 'Certificate in Web Computing'
+        column '2014'
       end
-      row do
-        column 'Richard Feynman'
-        column '1 Golden Gate'
-        column 'Quantum Field'
-      end
-    end
-    footer :title => "Lorem ipsum dolor sit amet, netur. Sit nisi nostrum minima dolor eius tempora?",
-    		:rule => true,
-    		:color => "blue",
-    		:spacing => 3,
-    		:align => 'center',
-    		:bold => true,
-    		:timestamp => true
+    end#of the table
 
-    vertical_spacing 2
-   	horizontal_rule :color => 'red', :bold => true, :char => "<"
-   	horizontal_rule :color => 'red', :bold => true, :char => ">"
-    header :title => 'The same table with the properties inherited from the first row'
+#############################################################################
+#############################################################################
+	#header for Experience
+	entete("Work Experience", 2)
 
+
+	#table for experience
     table :border => true do
-      row :color => 'red' do
-        column 'MY NAME IS REALLY LONG AND WILL WRAP AND HOPE', :width => 20, :align => 'center', :color => 'blue'
-        column 'ADDRESS', :width => 30, :padding => 5
-        column 'CITY', :width => 15
+      row :header => true, :color => 'red'  do
+        column 'Company', :width => 40, :align => 'center', :color => 'blue'
+        column 'Work', :width => 40, :padding => 5, :underline => true
+        column 'Year', :width => 15
       end
+      #I need to do a loop of work experience
       row :color => 'green', :bold => true do
-        column 'Ceaser'
-        column '1 Appian Way'
-        column 'Rome'
+        column 'Cegep Saint-Laurent'
+        column "Computer helper at the library"
+        column '2014'
       end
-      row do
-        column 'Richard Feynman'
-        column '1 Golden Gate'
-        column 'Quantum Field'
+    end#of the table for Experience
+
+	#table for list of experience
+    table :border => true do
+      row :header => true, :color => 'red'  do
+        column 'Job Tasks', :width => 101, :align => 'center', :color => 'blue'
       end
-    end
+      #I need to do a loop of work experience
+      3.times do
+      row :color => 'green', :bold => true do
+        column 'In Ruby read json file to hash can be achieved '
+      end
+  	end#end 3.times
+    end#of the table for Experience
+
+
+
+#############################################################################
+#############################################################################
+	#header for Skills
+	entete("Skills", 2)
+
+
+	#table for list of experience
+    table :border => true do
+      row :header => true, :color => 'red'  do
+        column 'Skills', :width => 101, :align => 'center', :color => 'blue'
+      end
+      #I need to do a loop of work experience
+      3.times do
+      row :color => 'green', :bold => true do
+        column 'In Ruby read json file to hash can be achieved '
+      end
+  	end#end 3.times
+    end#of the table for Experience
+
+    
 
     report do
       10.times do
@@ -108,11 +137,13 @@ class Resume
         progress
       end
     end
+
+
   end
 
 
 
-end
+end#end Resume
 
 
 options = OpenStruct.new({:quiet => false})
@@ -126,3 +157,7 @@ OptionParser.new do |opts|
 end.parse!
 
 Resume.new.run(options)
+
+
+#horizontal_rule :color => 'red', :bold => true, :char => "<"
+#horizontal_rule :color => 'red', :bold => true, :char => ">"
