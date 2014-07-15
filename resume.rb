@@ -4,6 +4,7 @@ require 'ostruct'
 require 'optparse'
 
 
+
 class Resume
   include CommandLineReporter
 
@@ -34,7 +35,7 @@ class Resume
 
 
 
-  def run(options = {})
+  def run(options = {}, file)
 
 	x = 0
 
@@ -51,7 +52,8 @@ class Resume
 
     #header for Guinsly Mondésir --Resume
 	 horizontal_rule :color => 'blue', :bold => true
-	 entete("Guinsly Mondesir - My Resume",0, true)
+	 name = file['bio']['firstName'] + " " + file['bio']['lastName']
+	 entete("#{name}- My Resume",0, true)
 
 
 #############################################################################
@@ -102,7 +104,7 @@ class Resume
       #I need to do a loop of work experience
       3.times do
       row :color => 'green', :bold => true do
-        column 'In Ruby read json file to hash can be achieved '
+        column 'Ruby doc: In Ruby read json file to hash can be achieved '
       end
   	end#end 3.times
     end#of the table for Experience
@@ -123,7 +125,7 @@ class Resume
       #I need to do a loop of work experience
       3.times do
       row :color => 'green', :bold => true do
-        column 'In Ruby read json file to hash can be achieved '
+        column 'Ruby doc: In Ruby read json file to hash can be achieved '
       end
   	end#end 3.times
     end#of the table for Experience
@@ -146,6 +148,23 @@ class Resume
 end#end Resume
 
 
+class Fichier
+	attr_accessor :data
+  def initialize
+	@data = JSON.parse(File.read("resume.json"))
+	#puts data = data['bio']['firstName']
+  end
+
+  def get_data
+  	@data
+  end
+end
+
+
+file = Fichier.new
+file = file.get_data
+
+
 options = OpenStruct.new({:quiet => false})
 
 OptionParser.new do |opts|
@@ -156,8 +175,7 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-Resume.new.run(options)
+Resume.new.run(options, file)
 
 
 #horizontal_rule :color => 'red', :bold => true, :char => "<"
-#horizontal_rule :color => 'red', :bold => true, :char => ">"
