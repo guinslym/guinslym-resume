@@ -3,7 +3,7 @@ GEM
   specs:
     awesome_print (1.2.0)
     colored (1.2)
-    command_line_reporter (3.3.2)
+    command_line_reporter (3.3.0)
       colored (>= 1.2)
     computering (0.2.0)
       minitest (~> 5.2)
@@ -21,6 +21,6 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
-  command_line_reporter (>= 3.0)
+  command_line_reporter (= 3.3.0)
   computering
   json

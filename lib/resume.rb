@@ -1,6 +1,8 @@
 require "json"
+require 'command_line_reporter'
 
 class Resume
+  include CommandLineReporter
   attr_accessor :name, :tel, :email, :experience, :education
   
   def initialize(data)
@@ -13,4 +15,14 @@ class Resume
   end
 
 end
+
+=begin dans le fichier resume.json data contient ces champs
+bio
+work
+education
+awards
+publications
+skills
+references
+=end
 
