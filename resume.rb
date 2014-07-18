@@ -2,6 +2,7 @@ require "json"
 require 'command_line_reporter'
 require 'ostruct'
 require 'optparse'
+require 'date'
 
 
 
@@ -55,9 +56,11 @@ class Resume
 	 name = file['bio']['firstName'] + " " + file['bio']['lastName']
 	 entete("#{name}- My Resume",0, true)
 
+#output #file['education'].each { |school| jj school }
 
 #############################################################################
 #############################################################################
+=begin
 	 #header for Education
 	 entete("Education", 2)
 	#table for Education
@@ -68,15 +71,21 @@ class Resume
         column 'Year', :width => 15
       end
       #I need to do a loop of my shool and diplomas here 
-      row :color => 'green', :bold => true do
-        column 'Universite de Montreal'
-        column 'Certificate in Web Computing'
-        column '2014'
-      end
-    end#of the table
 
+      file['education'].each  do |school|
+        row :color => 'green', :bold => true do
+          column school['institution']
+          column school['area']
+          column (school['endDate']).split("-").first
+        end
+      end#end of do
+
+    end#of the table
+=end
 #############################################################################
 #############################################################################
+=begin
+jj file['work']
 	#header for Experience
 	entete("Work Experience", 2)
 
@@ -109,10 +118,10 @@ class Resume
   	end#end 3.times
     end#of the table for Experience
 
-
-
+=end
 #############################################################################
 #############################################################################
+=begin
 	#header for Skills
 	entete("Skills", 2)
 
@@ -139,7 +148,7 @@ class Resume
         progress
       end
     end
-
+=end
 
   end
 
@@ -163,24 +172,30 @@ class Fichier
   def get_data
     @data
   end
+
+  def prepare_resume
+    #from optparse lib; have been test
+    options = OpenStruct.new({:quiet => false})
+
+    OptionParser.new do |opts|
+      opts.banner = "Usage: ruby -I lib example/quiet.rb [-q|--quiet]"
+
+      opts.on('-q', '--quiet', 'do not print any output') do
+        options.quiet = true
+      end
+    end.parse!
+
+    Resume.new.run(options, @data)
+  end
 end
 
 
 file = Fichier.new("resume.json")
-file = file.get_data
+file.prepare_resume
 
 
-options = OpenStruct.new({:quiet => false})
 
-OptionParser.new do |opts|
-  opts.banner = "Usage: ruby -I lib example/quiet.rb [-q|--quiet]"
 
-  opts.on('-q', '--quiet', 'do not print any output') do
-    options.quiet = true
-  end
-end.parse!
-
-Resume.new.run(options, file)
 
 
 #horizontal_rule :color => 'red', :bold => true, :char => "<"

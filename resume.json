@@ -77,6 +77,17 @@
         "DB1101 - Basic SQL",
         "CS2011 - Java Introduction"
       ]
+    },
+    {
+      "institution": "Université de Gatineau",
+      "startDate": "2011-06-01",
+      "endDate": "2014-01-01",
+      "area": "Information Technology",
+      "studyType": "Bachelor",
+      "courses": [
+        "DB1101 - Basic SQL",
+        "CS2011 - Java Introduction"
+      ]
     }
   ],
   "awards": [

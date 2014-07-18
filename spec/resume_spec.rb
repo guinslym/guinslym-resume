@@ -1,6 +1,6 @@
 require "spec_helper"
 require "json"
-#require 'command_line_reporter'
+require 'command_line_reporter'
 require 'ostruct'
 require 'optparse'
 #require_relative "../lib/resume"
