@@ -149,19 +149,24 @@ end#end Resume
 
 
 class Fichier
-	attr_accessor :data
-  def initialize
-	@data = JSON.parse(File.read("resume.json"))
-	#puts data = data['bio']['firstName']
+  attr_accessor :data
+
+  def initialize(file = "resume.json")
+  begin
+    @data = JSON.parse(File.read(file))
+  rescue Exception => e  
+    raise e, "file not, found"
+  end#begin
+
   end
 
   def get_data
-  	@data
+    @data
   end
 end
 
 
-file = Fichier.new
+file = Fichier.new("resume.json")
 file = file.get_data
 
 

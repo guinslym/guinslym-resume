@@ -1,0 +1,1 @@
+http://railscasts.com/episodes/66-custom-rake-tasks
