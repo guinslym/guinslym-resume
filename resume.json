@@ -38,9 +38,11 @@
       "website": "http://cabm.net/",
       "startDate": "2014-06-29",
       "endDate": "2012-06-29",
-      "summary": "Give an overview of your responsibilities at the company",
+      "summary": "Building websites as a volunteer fullstack programmer",
       "highlights": [
-        "Increased profits by 20% from 2011-2012 through viral advertising"
+        "build http://alcoholicos-anonimos-montreal.herokuapp.com/",
+        "build amabiblio.info",
+        "build http://mirojune.herokuapp.com/"
       ]
     },
     {
@@ -49,9 +51,10 @@
       "website": "http://www.statcan.gc.ca/",
       "startDate": "2011-04",
       "endDate": "2011-09",
-      "summary": "Give an overview of your responsibilities at the company",
+      "summary": "Customer services and record management clerk",
       "highlights": [
-        "Increased profits by 20% from 2011-2012 through viral advertising"
+        "Census 2011",
+        "Customer Services"
       ]
     },
     {
@@ -60,9 +63,10 @@
       "website": "http://www.cegep-st-laurent.qc.ca/",
       "startDate": "2010-08",
       "endDate": "2010-11",
-      "summary": "Give an overview of your responsibilities at the company",
+      "summary": "Help students with general question in regard for using the computers and printers",
       "highlights": [
-        "Increased profits by 20% from 2011-2012 through viral advertising"
+        "Techinical supports",
+        "Managing the network for over 12 computers"
       ]
     }
   ],

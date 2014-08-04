@@ -95,7 +95,7 @@ class Resume
       row :header => true, :color => 'red'  do
         column 'Company', :width => 30, :align => 'center', :color => 'blue'
         column 'Work', :width => 30, :padding => 5, :underline => true
-        column 'Year', :width => 35
+        column 'Year', :width => 45
       end
       #I need to do a loop of work experience
       row :color => 'green', :bold => true do
@@ -108,18 +108,18 @@ class Resume
 	#table for list of experience
     table :border => true do
       row :header => true, :color => 'red'  do
-        column 'Job Tasks', :width => 101, :align => 'center', :color => 'blue'
+        column 'Job Tasks', :width => 115, :align => 'center', :color => 'blue'
       end
       #I need to do a loop of work experience
-      job['highlights'].each do
+      job['highlights'].each do |tasks|
       row :color => 'green', :bold => true do
-        column 'Ruby doc: In Ruby read json file to hash can be achieved '
+        column tasks
       end
   	end#end file work
     end#of the table for Experience
     puts "\n"
     104.times {|n| print "#"}
-    puts "|n"
+    puts "\n"
   end#for file['work'].each
 
 #############################################################################
