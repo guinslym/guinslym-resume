@@ -7,7 +7,7 @@
       "personal": "guinslym@gmail.com"
     },
     "phone": {
-      "work": "(613) 343-2885",
+      "home": "(613) 343-2895",
       "personal": "(613) 209-1829"
     },
     "summary": "Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!",
@@ -26,7 +26,7 @@
     "languages":
       [
       "english",
-      "english",
+      "french",
       "portuguese"
       ]
     
@@ -71,7 +71,7 @@
       "institution": "Université de Montréal",
       "startDate": "2011-06-01",
       "endDate": "2014-01-01",
-      "area": "Information Technology",
+      "area": "Cert. Computer Science (Web Computing)",
       "studyType": "Bachelor",
       "courses": [
         "DB1101 - Basic SQL",
@@ -79,10 +79,21 @@
       ]
     },
     {
-      "institution": "Université de Gatineau",
+      "institution": "Université de Montreal",
       "startDate": "2011-06-01",
       "endDate": "2014-01-01",
-      "area": "Information Technology",
+      "area": "Cert. Record Management",
+      "studyType": "Bachelor",
+      "courses": [
+        "DB1101 - Basic SQL",
+        "CS2011 - Java Introduction"
+      ]
+    },
+    {
+      "institution": "Université de Montreal",
+      "startDate": "2011-06-01",
+      "endDate": "2014-01-01",
+      "area": "Cert. Art & Sciences",
       "studyType": "Bachelor",
       "courses": [
         "DB1101 - Basic SQL",

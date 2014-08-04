@@ -60,14 +60,14 @@ class Resume
 
 #############################################################################
 #############################################################################
-=begin
+
 	 #header for Education
 	 entete("Education", 2)
 	#table for Education
     table :border => true do
       row :header => true, :color => 'red'  do
         column 'School', :width => 40, :align => 'center', :color => 'blue'
-        column 'Diploma', :width => 40, :padding => 5
+        column 'Diploma', :width => 50, :padding => 5
         column 'Year', :width => 15
       end
       #I need to do a loop of my shool and diplomas here 
@@ -81,10 +81,10 @@ class Resume
       end#end of do
 
     end#of the table
-=end
+
 #############################################################################
 #############################################################################
-=begin
+
 jj file['work']
 	#header for Experience
 	entete("Work Experience", 2)
@@ -111,14 +111,13 @@ jj file['work']
         column 'Job Tasks', :width => 101, :align => 'center', :color => 'blue'
       end
       #I need to do a loop of work experience
-      3.times do
+      file['work'].each do
       row :color => 'green', :bold => true do
         column 'Ruby doc: In Ruby read json file to hash can be achieved '
       end
   	end#end 3.times
     end#of the table for Experience
 
-=end
 #############################################################################
 #############################################################################
 =begin
@@ -192,6 +191,7 @@ end
 
 file = Fichier.new("resume.json")
 file.prepare_resume
+
 
 
 
