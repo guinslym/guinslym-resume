@@ -85,23 +85,23 @@ class Resume
 #############################################################################
 #############################################################################
 
-jj file['work']
+
 	#header for Experience
 	entete("Work Experience", 2)
 
-
+  file['work'].each do |job|
 	#table for experience
     table :border => true do
       row :header => true, :color => 'red'  do
-        column 'Company', :width => 40, :align => 'center', :color => 'blue'
-        column 'Work', :width => 40, :padding => 5, :underline => true
-        column 'Year', :width => 15
+        column 'Company', :width => 30, :align => 'center', :color => 'blue'
+        column 'Work', :width => 30, :padding => 5, :underline => true
+        column 'Year', :width => 35
       end
       #I need to do a loop of work experience
       row :color => 'green', :bold => true do
-        column 'Cegep Saint-Laurent'
-        column "Computer helper at the library"
-        column '2014'
+        column job['company']
+        column job['position']
+        column job['summary']
       end
     end#of the table for Experience
 
@@ -111,12 +111,16 @@ jj file['work']
         column 'Job Tasks', :width => 101, :align => 'center', :color => 'blue'
       end
       #I need to do a loop of work experience
-      file['work'].each do
+      job['highlights'].each do
       row :color => 'green', :bold => true do
         column 'Ruby doc: In Ruby read json file to hash can be achieved '
       end
-  	end#end 3.times
+  	end#end file work
     end#of the table for Experience
+    puts "\n"
+    104.times {|n| print "#"}
+    puts "|n"
+  end#for file['work'].each
 
 #############################################################################
 #############################################################################
